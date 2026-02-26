@@ -52,7 +52,7 @@ void server(int id_queue_server) {
 
             /* TBD: Ricevere un messaggio da un collettore, con ricezione selettiva */
 
-            err = msgrcv(id_collettore, &m, sizeof(messaggio_collettore) - sizeof(messaggio_collettore), 2, 0);
+            err = msgrcv(id_queue_server, &m, sizeof(messaggio_collettore) - sizeof(messaggio_collettore), id_collettore, 0);
             if(err < 0){
                 perror("errore msgrcv collettore");
                 exit(1);

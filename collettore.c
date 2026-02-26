@@ -23,7 +23,7 @@ void collettore(int id_collettore, int id_queue_collettore, int id_queue_server)
 
             int err;
 
-            err = msgrcv(id_sensore, &m, sizeof(messaggio_sensore) - sizeof(long), 1, 0);
+            err = msgrcv(id_queue_collettore, &m, sizeof(messaggio_sensore) - sizeof(long), id_sensore, 0);
             if(err < 0){
                 perror("errore msgrcv sensore");
                 exit(1);
@@ -43,12 +43,12 @@ void collettore(int id_collettore, int id_queue_collettore, int id_queue_server)
 
         /* TBD: Inviare "media" al processo server */
 
-        m.mtype = 2;
+        m.mtype = id_collettore;
         m.valore = media;
 
         int err;
 
-        err = msgsnd(id_collettore, &m, sizeof(messaggio_collettore) - sizeof(long), 0);
+        err = msgsnd(id_queue_server, &m, sizeof(messaggio_collettore) - sizeof(long), 0);
         if(err < 0){
             perror("errore msgsnd collettore");
             exit(1);

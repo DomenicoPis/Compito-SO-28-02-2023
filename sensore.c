@@ -17,12 +17,12 @@ void sensore(int id_sensore, int id_queue_collettore) {
 
         /* TBD: Inviare "valore" mediante messaggio */
 
-        m.mtype = 1;
+        m.mtype = id_sensore;
         m.valore = valore;
 
         int err;
 
-        err = msgsnd(id_sensore, &m, sizeof(messaggio_sensore) - sizeof(long), 0);
+        err = msgsnd(id_queue_collettore, &m, sizeof(messaggio_sensore) - sizeof(long), 0);
         if(err < 0){
             perror("errore msgnd sensore");
             exit(1);
