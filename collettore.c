@@ -43,7 +43,7 @@ void collettore(int id_collettore, int id_queue_collettore, int id_queue_server)
 
         /* TBD: Inviare "media" al processo server */
 
-        m.mtype = 1;
+        m.mtype = 2;
         m.valore = media;
 
         int err;
