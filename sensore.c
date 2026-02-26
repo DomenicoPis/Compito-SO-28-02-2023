@@ -24,7 +24,7 @@ void sensore(int id_sensore, int id_queue_collettore) {
 
         err = msgsnd(id_sensore, &m, sizeof(messaggio_sensore) - sizeof(long), 0);
         if(err < 0){
-            perror("errore msgnd");
+            perror("errore msgnd sensore");
             exit(1);
         }
 

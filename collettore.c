@@ -25,7 +25,7 @@ void collettore(int id_collettore, int id_queue_collettore, int id_queue_server)
 
             err = msgrcv(id_sensore, &m, sizeof(messaggio_sensore) - sizeof(long), 1, 0);
             if(err < 0){
-                perror("errore msgrcv");
+                perror("errore msgrcv sensore");
                 exit(1);
             }
 
@@ -50,7 +50,7 @@ void collettore(int id_collettore, int id_queue_collettore, int id_queue_server)
 
         err = msgsnd(id_collettore, &m, sizeof(messaggio_collettore) - sizeof(long), 0);
         if(err < 0){
-            perror("errore msgsnd");
+            perror("errore msgsnd collettore");
             exit(1);
         }
 
