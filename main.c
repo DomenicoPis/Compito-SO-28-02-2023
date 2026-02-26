@@ -16,13 +16,13 @@ int main() {
         exit(1);
     }
 
-    int id_queue_collettore_2 = msgget(IPC_PRIVATE, IPC_CREATE | 0664);
+    int id_queue_collettore_2 = msgget(IPC_PRIVATE, IPC_CREAT | 0664);
     if(id_queue_collettore_2 < 0){
         perror("errore msgget coda collettore 2");
         exit(1);
     }
 
-    int id_queue_server = msgget(IPC_PRIVATE, IPC_CREATE | 0664);
+    int id_queue_server = msgget(IPC_PRIVATE, IPC_CREAT | 0664);
     if(id_queue_server < 0){
         perror("errore msgget coda server");
         exit(1);
