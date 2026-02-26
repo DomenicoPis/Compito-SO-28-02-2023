@@ -85,7 +85,7 @@ void server(int id_queue_server) {
     pthread_cond_destroy(&b->prod_ok);
     pthread_cond_destroy(&b->cons_ok);
 
-    free(m);
+    free(b);
 }
 
 void * visualizza(void * p) {
