@@ -32,7 +32,7 @@ void server(int id_queue_server) {
 
     int err;
 
-    err = pthread_create(&visualizzatore, NULL, visualizza, (void *)m);
+    err = pthread_create(&visualizzatore, NULL, visualizza, (void *)b);
     if(err != 0){
         perror("errore create visualizzatore");
         exit(1);
